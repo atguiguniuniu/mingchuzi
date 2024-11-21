@@ -25,9 +25,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2osN9hc4npGX1D6cbRDd4H1ym57" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -42,6 +42,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,6 +78,9 @@
       <workItem from="1731946464064" duration="141000" />
       <workItem from="1731946671628" duration="3913000" />
       <workItem from="1731995318816" duration="1589000" />
+      <workItem from="1732156501030" duration="216000" />
+      <workItem from="1732156720731" duration="18000" />
+      <workItem from="1732156743629" duration="43000" />
     </task>
     <task id="LOCAL-00001" summary="my first try">
       <created>1731944638990</created>
