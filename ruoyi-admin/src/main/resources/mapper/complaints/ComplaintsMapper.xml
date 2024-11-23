@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.complaints.mapper.ComplaintsMapper">
+    
+    <resultMap type="Complaints" id="ComplaintsResult">
+        <result property="id"    column="id"    />
+        <result property="complaintMerchant"    column="complaint_merchant"    />
+        <result property="merchantAddress"    column="merchant_address"    />
+        <result property="merchantInfoId"    column="merchant_info_id"    />
+        <result property="complainantPhone"    column="complainant_phone"    />
+        <result property="inCharge"    column="in_charge"    />
+        <result property="inChargephone"    column="in_chargephone"    />
+        <result property="complainComment"    column="complain_comment"    />
+        <result property="complainPhoto"    column="complain_photo"    />
+        <result property="responseComplaint"    column="response_complaint"    />
+        <result property="complainDate"    column="complain_date"    />
+        <result property="ifHandle"    column="if_handle"    />
+        <result property="complainant"    column="complainant"    />
+        <result property="merchantPhone"    column="merchant_phone"    />
+        <result property="city"    column="city"    />
+        <result property="district"    column="district"    />
+    </resultMap>
+
+    <sql id="selectComplaintsVo">
+        select id, complaint_merchant, merchant_address, merchant_info_id, complainant_phone, in_charge, in_chargephone, complain_comment, complain_photo, response_complaint, complain_date, if_handle, complainant, merchant_phone, city, district from complaints
+    </sql>
+
+    <select id="selectComplaintsList" parameterType="Complaints" resultMap="ComplaintsResult">
+        <include refid="selectComplaintsVo"/>
+        <where>  
+            <if test="complaintMerchant != null  and complaintMerchant != ''"> and complaint_merchant = #{complaintMerchant}</if>
+            <if test="merchantAddress != null  and merchantAddress != ''"> and merchant_address = #{merchantAddress}</if>
+            <if test="merchantInfoId != null "> and merchant_info_id = #{merchantInfoId}</if>
+            <if test="complainantPhone != null  and complainantPhone != ''"> and complainant_phone = #{complainantPhone}</if>
+            <if test="inCharge != null  and inCharge != ''"> and in_charge = #{inCharge}</if>
+            <if test="inChargephone != null  and inChargephone != ''"> and in_chargephone = #{inChargephone}</if>
+            <if test="complainComment != null  and complainComment != ''"> and complain_comment = #{complainComment}</if>
+            <if test="complainPhoto != null  and complainPhoto != ''"> and complain_photo = #{complainPhoto}</if>
+            <if test="responseComplaint != null  and responseComplaint != ''"> and response_complaint = #{responseComplaint}</if>
+            <if test="complainDate != null "> and DATE_FORMAT(complain_date,'%Y-%m-%d') = DATE_FORMAT(#{complainDate},'%Y-%m-%d')</if>
+            <if test="ifHandle != null  and ifHandle != ''"> and if_handle = #{ifHandle}</if>
+            <if test="complainant != null  and complainant != ''"> and complainant = #{complainant}</if>
+            <if test="merchantPhone != null  and merchantPhone != ''"> and merchant_phone = #{merchantPhone}</if>
+            <if test="city != null  and city != ''"> and city = #{city}</if>
+            <if test="district != null  and district != ''"> and district = #{district}</if>
+        </where>
+    </select>
+    
+    <select id="selectComplaintsById" parameterType="Long" resultMap="ComplaintsResult">
+        <include refid="selectComplaintsVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertComplaints" parameterType="Complaints" useGeneratedKeys="true" keyProperty="id">
+        insert into complaints
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="complaintMerchant != null">complaint_merchant,</if>
+            <if test="merchantAddress != null">merchant_address,</if>
+            <if test="merchantInfoId != null">merchant_info_id,</if>
+            <if test="complainantPhone != null">complainant_phone,</if>
+            <if test="inCharge != null">in_charge,</if>
+            <if test="inChargephone != null">in_chargephone,</if>
+            <if test="complainComment != null">complain_comment,</if>
+            <if test="complainPhoto != null">complain_photo,</if>
+            <if test="responseComplaint != null">response_complaint,</if>
+            <if test="complainDate != null">complain_date,</if>
+            <if test="ifHandle != null">if_handle,</if>
+            <if test="complainant != null">complainant,</if>
+            <if test="merchantPhone != null">merchant_phone,</if>
+            <if test="city != null">city,</if>
+            <if test="district != null">district,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="complaintMerchant != null">#{complaintMerchant},</if>
+            <if test="merchantAddress != null">#{merchantAddress},</if>
+            <if test="merchantInfoId != null">#{merchantInfoId},</if>
+            <if test="complainantPhone != null">#{complainantPhone},</if>
+            <if test="inCharge != null">#{inCharge},</if>
+            <if test="inChargephone != null">#{inChargephone},</if>
+            <if test="complainComment != null">#{complainComment},</if>
+            <if test="complainPhoto != null">#{complainPhoto},</if>
+            <if test="responseComplaint != null">#{responseComplaint},</if>
+            <if test="complainDate != null">#{complainDate},</if>
+            <if test="ifHandle != null">#{ifHandle},</if>
+            <if test="complainant != null">#{complainant},</if>
+            <if test="merchantPhone != null">#{merchantPhone},</if>
+            <if test="city != null">#{city},</if>
+            <if test="district != null">#{district},</if>
+         </trim>
+    </insert>
+
+    <update id="updateComplaints" parameterType="Complaints">
+        update complaints
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="complaintMerchant != null">complaint_merchant = #{complaintMerchant},</if>
+            <if test="merchantAddress != null">merchant_address = #{merchantAddress},</if>
+            <if test="merchantInfoId != null">merchant_info_id = #{merchantInfoId},</if>
+            <if test="complainantPhone != null">complainant_phone = #{complainantPhone},</if>
+            <if test="inCharge != null">in_charge = #{inCharge},</if>
+            <if test="inChargephone != null">in_chargephone = #{inChargephone},</if>
+            <if test="complainComment != null">complain_comment = #{complainComment},</if>
+            <if test="complainPhoto != null">complain_photo = #{complainPhoto},</if>
+            <if test="responseComplaint != null">response_complaint = #{responseComplaint},</if>
+            <if test="complainDate != null">complain_date = #{complainDate},</if>
+            <if test="ifHandle != null">if_handle = #{ifHandle},</if>
+            <if test="complainant != null">complainant = #{complainant},</if>
+            <if test="merchantPhone != null">merchant_phone = #{merchantPhone},</if>
+            <if test="city != null">city = #{city},</if>
+            <if test="district != null">district = #{district},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteComplaintsById" parameterType="Long">
+        delete from complaints where id = #{id}
+    </delete>
+
+    <delete id="deleteComplaintsByIds" parameterType="String">
+        delete from complaints where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

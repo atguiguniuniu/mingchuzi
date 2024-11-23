@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="PATH_TO_GIT" value="D:\Program Files\Git\bin\git.exe" />
     <option name="PUSH_TAGS">
@@ -34,25 +41,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/ruoyi-project/mingchuzi",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/ruoyi-project/mingchuzi/ruoyi-ui/src/views&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\idea\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\ruoyi-project\mingchuzi\ruoyi-ui\src\views" />
+      <recent name="F:\ruoyi-project\mingchuzi\ruoyi-ui\src\api" />
+      <recent name="F:\ruoyi-project\mingchuzi\ruoyi-admin\src\main\resources\mapper" />
+      <recent name="F:\ruoyi-project\mingchuzi\ruoyi-admin\src\main\java\com\ruoyi" />
       <recent name="D:\ruoyi重开版\RuoYi-Vue\ruoyi-ui\src\views" />
-      <recent name="D:\ruoyi重开版\RuoYi-Vue\ruoyi-ui\src\api" />
-      <recent name="D:\ruoyi重开版\RuoYi-Vue\ruoyi-admin\src\main\resources" />
-      <recent name="D:\ruoyi重开版\RuoYi-Vue\ruoyi-admin\src\main\java\com\ruoyi" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\ruoyi-project\mingchuzi\ruoyi-admin\src\main\resources\mapper" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="RuoYiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -81,6 +107,9 @@
       <workItem from="1732156501030" duration="216000" />
       <workItem from="1732156720731" duration="18000" />
       <workItem from="1732156743629" duration="43000" />
+      <workItem from="1732156789177" duration="10896000" />
+      <workItem from="1732238951647" duration="5238000" />
+      <workItem from="1732356406066" duration="346000" />
     </task>
     <task id="LOCAL-00001" summary="my first try">
       <created>1731944638990</created>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.warning.mapper.RiskWarningMapper">
+    
+    <resultMap type="RiskWarning" id="RiskWarningResult">
+        <result property="id"    column="id"    />
+        <result property="tradername"    column="tradername"    />
+        <result property="city"    column="city"    />
+        <result property="district"    column="district"    />
+        <result property="location"    column="location"    />
+        <result property="secureadmin"    column="secureadmin"    />
+        <result property="phone"    column="phone"    />
+        <result property="depttype"    column="depttype"    />
+        <result property="expirationdate"    column="expirationdate"    />
+        <result property="licensetype"    column="licensetype"    />
+        <result property="flag"    column="flag"    />
+        <result property="remind"    column="remind"    />
+    </resultMap>
+
+    <sql id="selectRiskWarningVo">
+        select id, tradername, city, district, location, secureadmin, phone, depttype, expirationdate, licensetype, flag, remind from risk_warning
+    </sql>
+
+    <select id="selectRiskWarningList" parameterType="RiskWarning" resultMap="RiskWarningResult">
+        <include refid="selectRiskWarningVo"/>
+        <where>  
+            <if test="tradername != null  and tradername != ''"> and tradername like concat('%', #{tradername}, '%')</if>
+            <if test="city != null  and city != ''"> and city = #{city}</if>
+            <if test="district != null  and district != ''"> and district = #{district}</if>
+            <if test="location != null  and location != ''"> and location = #{location}</if>
+            <if test="secureadmin != null  and secureadmin != ''"> and secureadmin = #{secureadmin}</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="depttype != null  and depttype != ''"> and depttype = #{depttype}</if>
+            <if test="expirationdate != null "> and expirationdate = #{expirationdate}</if>
+            <if test="licensetype != null  and licensetype != ''"> and licensetype = #{licensetype}</if>
+            <if test="flag != null  and flag != ''"> and flag = #{flag}</if>
+            <if test="remind != null  and remind != ''"> and remind = #{remind}</if>
+        </where>
+    </select>
+    
+    <select id="selectRiskWarningById" parameterType="Long" resultMap="RiskWarningResult">
+        <include refid="selectRiskWarningVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertRiskWarning" parameterType="RiskWarning" useGeneratedKeys="true" keyProperty="id">
+        insert into risk_warning
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tradername != null">tradername,</if>
+            <if test="city != null">city,</if>
+            <if test="district != null">district,</if>
+            <if test="location != null">location,</if>
+            <if test="secureadmin != null">secureadmin,</if>
+            <if test="phone != null">phone,</if>
+            <if test="depttype != null">depttype,</if>
+            <if test="expirationdate != null">expirationdate,</if>
+            <if test="licensetype != null">licensetype,</if>
+            <if test="flag != null">flag,</if>
+            <if test="remind != null">remind,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="tradername != null">#{tradername},</if>
+            <if test="city != null">#{city},</if>
+            <if test="district != null">#{district},</if>
+            <if test="location != null">#{location},</if>
+            <if test="secureadmin != null">#{secureadmin},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="depttype != null">#{depttype},</if>
+            <if test="expirationdate != null">#{expirationdate},</if>
+            <if test="licensetype != null">#{licensetype},</if>
+            <if test="flag != null">#{flag},</if>
+            <if test="remind != null">#{remind},</if>
+         </trim>
+    </insert>
+
+    <update id="updateRiskWarning" parameterType="RiskWarning">
+        update risk_warning
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="tradername != null">tradername = #{tradername},</if>
+            <if test="city != null">city = #{city},</if>
+            <if test="district != null">district = #{district},</if>
+            <if test="location != null">location = #{location},</if>
+            <if test="secureadmin != null">secureadmin = #{secureadmin},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="depttype != null">depttype = #{depttype},</if>
+            <if test="expirationdate != null">expirationdate = #{expirationdate},</if>
+            <if test="licensetype != null">licensetype = #{licensetype},</if>
+            <if test="flag != null">flag = #{flag},</if>
+            <if test="remind != null">remind = #{remind},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteRiskWarningById" parameterType="Long">
+        delete from risk_warning where id = #{id}
+    </delete>
+
+    <delete id="deleteRiskWarningByIds" parameterType="String">
+        delete from risk_warning where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

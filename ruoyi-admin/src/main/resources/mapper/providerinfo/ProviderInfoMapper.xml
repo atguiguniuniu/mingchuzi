@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.providerinfo.mapper.ProviderInfoMapper">
+    
+    <resultMap type="ProviderInfo" id="ProviderInfoResult">
+        <result property="id"    column="id"    />
+        <result property="socialcreditcode"    column="socialcreditcode"    />
+        <result property="providername"    column="providername"    />
+        <result property="location"    column="location"    />
+        <result property="juridicalperson"    column="juridicalperson"    />
+        <result property="businessscope"    column="businessscope"    />
+        <result property="expirationdate"    column="expirationdate"    />
+        <result property="photopath"    column="photopath"    />
+        <result property="city"    column="city"    />
+        <result property="district"    column="district"    />
+        <result property="providerphone"    column="providerphone"    />
+        <result property="area"    column="area"    />
+    </resultMap>
+
+    <sql id="selectProviderInfoVo">
+        select id, socialcreditcode, providername, location, juridicalperson, businessscope, expirationdate, photopath, city, district, providerphone, area from provider_info
+    </sql>
+
+    <select id="selectProviderInfoList" parameterType="ProviderInfo" resultMap="ProviderInfoResult">
+        <include refid="selectProviderInfoVo"/>
+        <where>  
+            <if test="providername != null  and providername != ''"> and providername like concat('%', #{providername}, '%')</if>
+            <if test="location != null  and location != ''"> and location = #{location}</if>
+            <if test="juridicalperson != null  and juridicalperson != ''"> and juridicalperson = #{juridicalperson}</if>
+            <if test="businessscope != null  and businessscope != ''"> and businessscope = #{businessscope}</if>
+            <if test="expirationdate != null  and expirationdate != ''"> and expirationdate = #{expirationdate}</if>
+            <if test="photopath != null  and photopath != ''"> and photopath = #{photopath}</if>
+            <if test="city != null  and city != ''"> and city = #{city}</if>
+            <if test="district != null  and district != ''"> and district = #{district}</if>
+            <if test="providerphone != null  and providerphone != ''"> and providerphone = #{providerphone}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+        </where>
+    </select>
+    
+    <select id="selectProviderInfoById" parameterType="Integer" resultMap="ProviderInfoResult">
+        <include refid="selectProviderInfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertProviderInfo" parameterType="ProviderInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into provider_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="socialcreditcode != null">socialcreditcode,</if>
+            <if test="providername != null">providername,</if>
+            <if test="location != null">location,</if>
+            <if test="juridicalperson != null">juridicalperson,</if>
+            <if test="businessscope != null">businessscope,</if>
+            <if test="expirationdate != null">expirationdate,</if>
+            <if test="photopath != null">photopath,</if>
+            <if test="city != null">city,</if>
+            <if test="district != null">district,</if>
+            <if test="providerphone != null">providerphone,</if>
+            <if test="area != null">area,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="socialcreditcode != null">#{socialcreditcode},</if>
+            <if test="providername != null">#{providername},</if>
+            <if test="location != null">#{location},</if>
+            <if test="juridicalperson != null">#{juridicalperson},</if>
+            <if test="businessscope != null">#{businessscope},</if>
+            <if test="expirationdate != null">#{expirationdate},</if>
+            <if test="photopath != null">#{photopath},</if>
+            <if test="city != null">#{city},</if>
+            <if test="district != null">#{district},</if>
+            <if test="providerphone != null">#{providerphone},</if>
+            <if test="area != null">#{area},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProviderInfo" parameterType="ProviderInfo">
+        update provider_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="socialcreditcode != null">socialcreditcode = #{socialcreditcode},</if>
+            <if test="providername != null">providername = #{providername},</if>
+            <if test="location != null">location = #{location},</if>
+            <if test="juridicalperson != null">juridicalperson = #{juridicalperson},</if>
+            <if test="businessscope != null">businessscope = #{businessscope},</if>
+            <if test="expirationdate != null">expirationdate = #{expirationdate},</if>
+            <if test="photopath != null">photopath = #{photopath},</if>
+            <if test="city != null">city = #{city},</if>
+            <if test="district != null">district = #{district},</if>
+            <if test="providerphone != null">providerphone = #{providerphone},</if>
+            <if test="area != null">area = #{area},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProviderInfoById" parameterType="Integer">
+        delete from provider_info where id = #{id}
+    </delete>
+
+    <delete id="deleteProviderInfoByIds" parameterType="String">
+        delete from provider_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

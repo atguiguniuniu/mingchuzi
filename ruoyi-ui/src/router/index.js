@@ -31,6 +31,11 @@ import Layout from '@/layout'
 // 公共路由
 export const constantRoutes = [
   {
+    path: '/views/providerinfo/providerinfo/zhu',
+    name:'zhu',
+    component:()=>import('@/views/providerinfo/providerinfo/zhu'),
+  },
+  {
     path: '/redirect',
     component: Layout,
     hidden: true,
@@ -161,7 +166,8 @@ export const dynamicRoutes = [
         meta: { title: '修改生成配置', activeMenu: '/tool/gen' }
       }
     ]
-  }
+  },
+
 ]
 
 // 防止连续点击多次路由报错
